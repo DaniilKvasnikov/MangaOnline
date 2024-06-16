@@ -18,8 +18,17 @@ class MANGAONLINE_API AMainCharacter : public ACharacter
 public:
 	AMainCharacter();
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	UInputAction* ShootAction;
+	UPROPERTY(EditAnywhere, Category = "Input")
+	UInputMappingContext* InputMapping;
+
+	UPROPERTY(EditAnywhere, Category = "Input")
+	UInputAction* MainAction;
+
+	UPROPERTY(EditAnywhere, Category = "Input")
+	UInputAction* MoveAction;
+
+	UPROPERTY(EditAnywhere, Category = "Input")
+	UInputAction* LookAction;
 
 protected:
 	virtual void BeginPlay() override;
@@ -29,6 +38,7 @@ public:
 
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	UFUNCTION()
-	void Shoot(const FInputActionValue& Value);
+	void PressMainAction(const FInputActionValue& Value);
+	void Move(const FInputActionValue& Value);
+	void Look(const FInputActionValue& Value);
 };

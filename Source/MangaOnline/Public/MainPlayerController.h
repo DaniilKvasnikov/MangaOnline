@@ -4,20 +4,17 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
+#include "InputActionValue.h"
 #include "MainPlayerController.generated.h"
 
 class UInputMappingContext;
-/**
- * 
- */
+
 UCLASS()
 class MANGAONLINE_API AMainPlayerController : public APlayerController
 {
 	GENERATED_BODY()
 public:
-
-	UPROPERTY(EditAnywhere, Category = "Input")
-	UInputMappingContext* InputMapping;
+	AMainPlayerController();
 
 	virtual void BeginPlay() override;
 };

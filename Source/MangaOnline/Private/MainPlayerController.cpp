@@ -4,14 +4,11 @@
 #include "MainPlayerController.h"
 #include <EnhancedInputSubsystems.h>
 
+AMainPlayerController::AMainPlayerController()
+{
+	AutoReceiveInput = EAutoReceiveInput::Player0;
+}
+
 void AMainPlayerController::BeginPlay()
 {
-	if (ULocalPlayer* PlayerController = Cast<ULocalPlayer>(Player))
-	{
-		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController))
-		{
-			Subsystem->ClearAllMappings();
-			Subsystem->AddMappingContext(InputMapping, 0);
-		}
-	}
 }
