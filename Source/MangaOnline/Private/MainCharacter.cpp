@@ -40,9 +40,9 @@ void AMainCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 
 	if (UEnhancedInputComponent* Input = Cast<UEnhancedInputComponent>(PlayerInputComponent))
 	{
-		Input->BindAction(MainAction, ETriggerEvent::Triggered, this, &AMainCharacter::PressMainAction);
-		Input->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AMainCharacter::Move);
-		Input->BindAction(LookAction, ETriggerEvent::Triggered, this, &AMainCharacter::Look);
+		Input->BindAction(InputActions->MainAction, ETriggerEvent::Triggered, this, &AMainCharacter::PressMainAction);
+		Input->BindAction(InputActions->MoveAction, ETriggerEvent::Triggered, this, &AMainCharacter::Move);
+		Input->BindAction(InputActions->LookAction, ETriggerEvent::Triggered, this, &AMainCharacter::Look);
 	}
 }
 

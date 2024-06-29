@@ -4,11 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
-#include <EnhancedInputSubsystems.h>
+#include "Input/InputDataConfig.h"
 
 #include "MainCharacter.generated.h"
-
-class UInputAction;
 
 UCLASS()
 class MANGAONLINE_API AMainCharacter : public ACharacter
@@ -21,14 +19,8 @@ public:
 	UPROPERTY(EditAnywhere, Category = "Input")
 	UInputMappingContext* InputMapping;
 
-	UPROPERTY(EditAnywhere, Category = "Input")
-	UInputAction* MainAction;
-
-	UPROPERTY(EditAnywhere, Category = "Input")
-	UInputAction* MoveAction;
-
-	UPROPERTY(EditAnywhere, Category = "Input")
-	UInputAction* LookAction;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Input")
+	UInputDataConfig* InputActions;
 
 protected:
 	virtual void BeginPlay() override;
